@@ -14,7 +14,7 @@
   6. https://unisia-se.com/detail/19/
 
 # operating environment
-* operating System：CentOS
+* operating system：CentOS
 * programming language：Python
 * web server：Apache
 * frame work：Django
