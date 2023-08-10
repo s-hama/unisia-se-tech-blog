@@ -7,7 +7,7 @@ import logging
 logging.getLogger('command').debug(' >>> ' + __name__)
 
 urlpatterns = [ 
-    url(r'^', views.PostIndexView.as_view(), name='index'),
+    path('', views.PostIndexView.as_view(), name='index'), 
 
     url(r'^detail/(?P<pk>[0-9]+)/$',
         views.PostDetailView.as_view(), name='detail'),
