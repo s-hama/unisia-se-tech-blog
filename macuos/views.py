@@ -63,20 +63,11 @@ class PpolicyView(BaseListView):
 
 class PostDetailView(generic.DetailView):
     model = Post
-    # 2018/08/16 add hama >>> 
     def get_object(self, queryset=None):
         post = super().get_object()
-        # M00008 2021/11/03 mod hama >>>
-        logging.getLogger('command').debug(post.category)
-        # 小カテゴリー名にPaidContentが含まれていない場合は、公開中であれば表示。
-        # 小カテゴリー名にPaidContentが含まれている場合はは、公開中かつ、ログイン承認済である場合のみ表示。
-        # 上記以外は、404エラーを表示。
         if str(post.category) not in str("PaidContent") and post.is_publick:
             return post
         elif str(post.category) in str("PaidContent") and post.is_publick and self.request.user.is_authenticated:
             return post
         else:
             raise Http404
-        # <<<
-    # <<<
-
