@@ -30,7 +30,7 @@ Pillow==5.1.0
 plac==1.2.0
 psycopg2==2.7.4
 psycopg2-binary==2.7.5
-pycodestyle==2.4.0
+# pycodestyle==2.4.0
 # pycparser==2.20
 # pyflakes==2.0.0
 # pyocr==0.8.3
