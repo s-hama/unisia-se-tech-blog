@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles'
 ]
-if 'test' in sys.argv:
+if not 'test' in sys.argv:
     INSTALLED_APPS += ['debug_toolbar']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') 
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
-if 'test' in sys.argv:
+if not 'test' in sys.argv:
     MIDDLEWARE += [
         'debug_toolbar.middleware.DebugToolbarMiddleware'
     ]
