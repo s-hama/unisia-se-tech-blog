@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import logging
+import sys
 
 logging.getLogger('command').debug(' >>> ' + __name__)
 
