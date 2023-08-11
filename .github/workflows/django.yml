@@ -31,6 +31,8 @@ jobs:
       # - name: Start Docker Compose
       #   run: docker-compose up -d
       - name: Check Code Format
-        run: tox -e flake8
+        run: |
+          pip install tox
+          tox -e flake8
       - name: Unit Test
         run: tox -e testapp
