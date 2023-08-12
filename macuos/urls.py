@@ -7,10 +7,7 @@ import logging
 logging.getLogger('command').debug(' >>> ' + __name__)
 
 urlpatterns = [ 
-    # 2018/08/16 M00002 s-hama>>>
-    #url(r'^', views.PostIndexView.as_view(), name='index'),
     path('', views.PostIndexView.as_view(), name='index'), 
-    # 2018/08/16 M00002 s-hama <<<
 
     url(r'^detail/(?P<pk>[0-9]+)/$',
         views.PostDetailView.as_view(), name='detail'),

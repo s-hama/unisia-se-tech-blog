@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import logging
+import sys
 
 logging.getLogger('command').debug(' >>> ' + __name__)
 
@@ -40,9 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'debug_toolbar'
+    'django.contrib.staticfiles'
 ]
+
+# Tentatively, we have taken action to prevent debug_toolbar from being loaded during testing
+# because of a convention violation error during Run Tests (python manage.py test) of "Django CVE Rooster CI"
+# where debug_toolbar does not inherit from AppConfig.
+# (Same for MIDDLEWARE settings below)
+if not 'test' in sys.argv:
+    INSTALLED_APPS += ['debug_toolbar']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') 
 SECURE_SSL_REDIRECT = True
@@ -56,9 +63,13 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
+
+if not 'test' in sys.argv:
+    MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware'
+    ]
 
 ROOT_URLCONF = 'ops.urls'
 
@@ -165,7 +176,7 @@ LOGGING = {
         'file': { 
             'level': 'DEBUG',
             'class': 'logging.FileHandler',  
-            'filename': os.path.join('/var/log/httpd', 'django.log'),
+            'filename': os.path.join('/var/log/httpd/', 'django.log'),
             'formatter': 'all',  
         },
         'console': { 
@@ -181,6 +192,12 @@ LOGGING = {
         },
     },
 }
+
+# During Run Tests (python manage.py test) of "Django CVE Rooster CI",
+# filename is not managed by the program, so a non-existent error occurs,
+# so we took a tentative action to set a relative path when testing.
+if 'test' in sys.argv:
+    LOGGING['handlers']['file']['filename'] = os.path.join('../', 'django.log')
 
 # Debug Toolber Setting >>>
 # INTERNAL_IPS = '127.0.0.1'
