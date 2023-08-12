@@ -170,7 +170,7 @@ LOGGING = {
         'file': { 
             'level': 'DEBUG',
             'class': 'logging.FileHandler',  
-            'filename': os.path.join('../', 'django.log'),
+            'filename': os.path.join('/var/log/httpd/', 'django.log'),
             'formatter': 'all',  
         },
         'console': { 
@@ -186,6 +186,8 @@ LOGGING = {
         },
     },
 }
+if 'test' in sys.argv:
+    LOGGING['handlers']['file']['filename'] = '../'
 
 # Debug Toolber Setting >>>
 # INTERNAL_IPS = '127.0.0.1'
