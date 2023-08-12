@@ -197,7 +197,7 @@ LOGGING = {
 # filename is not managed by the program, so a non-existent error occurs,
 # so we took a tentative action to set a relative path when testing.
 if 'test' in sys.argv:
-    LOGGING['handlers']['file']['filename'] = '../'
+    LOGGING['handlers']['file']['filename'] = os.path.join('../', 'django.log')
 
 # Debug Toolber Setting >>>
 # INTERNAL_IPS = '127.0.0.1'
