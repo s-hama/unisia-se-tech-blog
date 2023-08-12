@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles'
 ]
+
+# Tentatively, we have taken action to prevent debug_toolbar from being loaded during testing
+# because of a convention violation error during Run Tests (python manage.py test) of "Django CVE Rooster CI"
+# where debug_toolbar does not inherit from AppConfig.
+# (Same for MIDDLEWARE settings below)
 if not 'test' in sys.argv:
     INSTALLED_APPS += ['debug_toolbar']
 
@@ -60,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
+
 if not 'test' in sys.argv:
     MIDDLEWARE += [
         'debug_toolbar.middleware.DebugToolbarMiddleware'
@@ -186,6 +192,10 @@ LOGGING = {
         },
     },
 }
+
+# During Run Tests (python manage.py test) of "Django CVE Rooster CI",
+# filename is not managed by the program, so a non-existent error occurs,
+# so we took a tentative action to set a relative path when testing.
 if 'test' in sys.argv:
     LOGGING['handlers']['file']['filename'] = '../'
 
