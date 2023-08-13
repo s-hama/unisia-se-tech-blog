@@ -199,7 +199,6 @@ LOGGING = {
 if 'test' in sys.argv:
     LOGGING['handlers']['file']['filename'] = os.path.join('../', 'django.log')
 
-# Debug Toolber Setting >>>
 # INTERNAL_IPS = '127.0.0.1'
 INTERNAL_IPS = ['153.178.106.103'] # Dev PC Global IPAddress
 
@@ -218,4 +217,3 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
     'debug_toolbar.panels.profiling.ProfilingPanel'
 ]
-# Debug Toolber Setting <<<

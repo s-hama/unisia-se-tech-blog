@@ -15,7 +15,6 @@ import sys
 
 sys.path.append(r'/var/www/vops/ops')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ops.settings")
-#os.environ["DJANGO_SETTINGS_MODULE"] = "ops.settings"
 
 application = get_wsgi_application()
 logging.getLogger('command').debug('ON wsgi.py')

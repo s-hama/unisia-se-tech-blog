@@ -2,13 +2,11 @@
  
  
 def _get_latest_post(queryset):
-    """もらったクエリセットを、さらに絞り込んで返す。"""
  
     return queryset.filter(is_publick=True).order_by('-created_at')[:5]
  
  
 class BigCategory(models.Model):
-    """大カテゴリ"""
  
     name = models.CharField("大カテゴリ名", max_length=255)
     created_at = models.DateTimeField("作成日", auto_now_add=True)
@@ -22,7 +20,6 @@ class BigCategory(models.Model):
  
  
 class SmallCategory(models.Model):
-    """小カテゴリー"""
  
     name = models.CharField("小カテゴリ名", max_length=255)
     parent = models.ForeignKey(BigCategory, verbose_name="大カテゴリ", on_delete=models.CASCADE)
@@ -37,7 +34,6 @@ class SmallCategory(models.Model):
  
  
 class Tag(models.Model):
-    """タグ"""
  
     name = models.CharField("タグ名", max_length=255)
     created_at = models.DateTimeField("作成日", auto_now_add=True)
@@ -51,7 +47,6 @@ class Tag(models.Model):
  
  
 class Post(models.Model):
-    """ブログのポスト"""
  
     title = models.CharField("タイトル", max_length=255)
     text = models.TextField("本文")
