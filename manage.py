@@ -2,9 +2,7 @@
 import os
 import sys
 import logging
-#from multiprocessing import Process
 
-#def MacuosThreadExecute():
 if __name__ == "__main__":
     logging.getLogger('command').debug('ON manage.py')
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ops.settings")

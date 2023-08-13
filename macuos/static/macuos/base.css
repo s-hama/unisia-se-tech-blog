@@ -1,4 +1,4 @@
-﻿// _button.scss over write 
+﻿/* _button.scss over write */
 .btn-lg {
     padding: .75rem 1.5rem;
     font-size: 1rem;
@@ -18,14 +18,18 @@
 
 .blog-src {
     color: #ffffff;
-    //background-color: #eceeef;
-    //padding-left:5px;
-    //padding-right:5px;
+    /* 
+        background-color: #eceeef;
+        padding-left:5px;
+        padding-right:5px;
+    */
 }
 
 .hljs {
-    //overflow-x: initial;
-    //background:#eceeef;
+    /*
+        overflow-x: initial;
+        background:#eceeef;
+    */
     padding: 0px 10px 15px 10px;
 }
 
