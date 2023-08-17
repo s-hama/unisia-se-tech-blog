@@ -89,18 +89,20 @@
         fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
     </script>
-    <nav class="navbar navbar-dark bg-primary" style="border-radius:.1rem">
+    <nav class="navbar navbar-dark bg-primary navbar-fixed-top" style="border-radius:.1rem">
       <button class="navbar-toggler hidden-sm-up" style = "color: #ffffff; border-color: #ffffff" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
         Menu
       </button>
       <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
         <div class="container">
+          <!--
           <a class="navbar-brand" href="https://unisia-se.com">
-		  <img src="{% static 'macuos/img/unisia_mark_h.png'  %}" width="30" height="30"  style="float:left; margin-right:5px;" alt="UNISIA-SE">
+		      <img src="{% static 'macuos/img/unisia_mark_h.png'  %}" width="30" height="30"  style="float:left; margin-right:5px;" alt="UNISIA-SE">
           </a>
+          -->
           <ul class="nav navbar-nav">
             <li class="nav-item {% block nav_home %}{% endblock %}">
-              <a class="nav-link" href="{% url 'macuos:index' %}">BlogTop<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'macuos:index' %}">Top<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'macuos:profile' %}">Profile</a>
@@ -108,24 +110,31 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'macuos:contact' %}">Contact</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'macuos:ppolicy' %}">PrivacyPolicy</a>
-            </li>
             {% if user.is_authenticated %}
               <li class="nav-item">
+                <a class="nav-link" href="{% url 'macuos:ppolicy' %}">PrivacyPolicy</a>
+              </li>
+              <li class="nav-item" style="margin-right: 1rem;">
                 <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
               </li>
             {% endif %}
+            {% if not user.is_authenticated %}
+              <li class="nav-item" style="margin-right: 1rem;">
+                <a class="nav-link" href="{% url 'macuos:ppolicy' %}">PrivacyPolicy</a>
+              </li>
+            {% endif %}
+            <li>
+              <form action="{% url 'macuos:index' %}" method="GET" class="form-inline">
+                <input class="form-control" type="text" name="quick" style="width:160px; display:inline-block;" placeholder="キーワードを入力">
+                <button class="btn btn-outline-success" style="vertical-align:top;" type="submit">検索</button>
+              </form>
+            </li>
           </ul>
-          <form action="{% url 'macuos:index' %}" method="GET" class="form-inline pull-xs-right">
-            <input class="form-control" type="text" name="quick" style="width:160px" placeholder="キーワードを入力">
-            <button class="btn btn-outline-success" type="submit">検索</button>
-          </form>
         </div>
       </div>
     </nav>
  
-    <div class="jumbotron" style="padding:2rem 1rem;background-color: #3c3c3c;border-radius:.1rem">
+    <div class="jumbotron" style="padding:2rem 1rem;background-color: #3c3c3c;border-radius:.1rem; margin-top:54px;">
       <div class="container" style="background-size:260px 130px;">
         <h1 style="color:#f5f5f5;text-align:left;">UNISIA-SE Tech Blog</h2>
         <p class="lead text-muted" style="text-align:left;">
