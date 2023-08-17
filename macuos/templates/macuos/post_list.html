@@ -14,11 +14,19 @@
         {% endfor %}
         <p class="text-muted">{{ post.created_at }}</p>
         {% if user.is_authenticated %}
-        <p>
-	<a class="nav-link" href="{% url 'admin:macuos_post_change' post.pk %}">>> 管理画面へ</a>
-        </p>
+          {% if user.username == "admin" %}
+            <p>
+              <a class="nav-link" href="{% url 'admin:macuos_post_change' post.pk %}">>> 管理画面へ</a>
+            </p>
+          {% endif %}
+          <a class="btn btn-outline-primary btn-lg btn-block" href="{% url 'macuos:detail' post.pk %}">>> この記事を読む</a>
+        {% else %}
+          {% if post.category.name == "PaidContent" %}
+            <a class="btn btn-outline-primary btn-lg btn-block disabled" href="{% url 'macuos:detail' post.pk %}">>> この記事を読む</a>
+          {% else %}
+            <a class="btn btn-outline-primary btn-lg btn-block" href="{% url 'macuos:detail' post.pk %}">>> この記事を読む</a>
+          {% endif %}
         {% endif %}
-	<a class="btn btn-outline-primary btn-lg btn-block" href="{% url 'macuos:detail' post.pk %}">>> この記事を読む</a>
       </div>
     </div>
   {% endfor %}
