@@ -22,7 +22,7 @@
 
 # author
 * s-hama
-* s-hama@unisia.se.jp
+* s-hama@sigma.se.jp
 
 # license
 * tech-blog is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
