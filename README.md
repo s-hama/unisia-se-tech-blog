@@ -1,17 +1,17 @@
-# tech-blog
-* The tech-blog on s-hama's technical blog provides the source code excluding article information.
+# unisia-se-tech-blog
+* The unisia-se-tech-blog on s-hama's technical blog provides the source code excluding article information.
 
 # features
 * It is being showcased on https://unisia-se.com/. 
 * We have implemented it in the operational environment listed below, and we are sharing it with the hope that it can serve as a reference for your Django web application development.
 
-* Furthermore, while it may contain outdated information, we have also included the setup instructions below for your reference, and we would be pleased if you find them helpful.
-  1. https://unisia-se.com/detail/12/
-  2. https://unisia-se.com/detail/14/
-  3. https://unisia-se.com/detail/15/
-  4. https://unisia-se.com/detail/17/
-  5. https://unisia-se.com/detail/18/
-  6. https://unisia-se.com/detail/19/
+# technology used
+
+<img src="https://img.shields.io/badge/-Javascript-000000.svg?logo=javascript&style=for-the-badge">
+<img src="https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=for-the-badge">
+<img src="https://img.shields.io/badge/-Python-F2C63C.svg?logo=python&style=for-the-badge">
+<img src="https://img.shields.io/badge/-Apache-D22128.svg?logo=apache&style=for-the-badge">
+<img src="https://img.shields.io/badge/-Postgresql-336791.svg?logo=postgresql&style=for-the-badge">
 
 # operating environment
 * operating system：CentOS
@@ -25,4 +25,4 @@
 * s-hama@sigma.se.jp
 
 # license
-* tech-blog is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+* unisia-se-tech-blog is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
