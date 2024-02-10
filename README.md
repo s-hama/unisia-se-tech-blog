@@ -1,5 +1,5 @@
-# tech-blog
-* The tech-blog on s-hama's technical blog provides the source code excluding article information.
+# unisia-se-tech-blog
+* The unisia-se-tech-blog on s-hama's technical blog provides the source code excluding article information.
 
 # features
 * It is being showcased on https://unisia-se.com/. 
@@ -25,4 +25,4 @@
 * s-hama@sigma.se.jp
 
 # license
-* tech-blog is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+* unisia-se-tech-blog is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
